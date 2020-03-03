@@ -2,8 +2,7 @@ var nameList = [];
 
 function start() {
     setTimeout(function() {
-        console.log(window.location.origin);
-        if (onAmazon){
+        if (window.location.origin.toUpperCase().includes("AMAZON")){
             $(".xrayQuickViewListItem").each((i,ele) =>{
                 //if it contains portait image, its a person
                 if ($(ele).hasClass("portraitImage")){
@@ -24,16 +23,16 @@ function start() {
             });
         }
       start();
-      // Every 5 sec
+      //check every 5 seconds
     }, 5000);
 }
 
 function showXRay(){
     if(!$(".xrayQuickView").hasClass("show")) $(".xrayQuickView").addClass("show");
+    //show xray for three seconds
     setTimeout(()=>{
         $(".xrayQuickView").removeClass("show");
     },3000);
 }
-
-// Begins
+//run it
 start();
